@@ -3,9 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileUtility", "FileUtility\FileUtility.csproj", "{2940CF4B-9538-4816-8643-149D2722A937}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileUtility", "FileUtility\FileUtility.csproj", "{2940CF4B-9538-4816-8643-149D2722A937}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileUtilityTests", "FileUtilityTests\FileUtilityTests.csproj", "{E1AE72ED-2CBC-4657-9448-C7BC974A5D00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileUtilityTests", "FileUtilityTests\FileUtilityTests.csproj", "{E1AE72ED-2CBC-4657-9448-C7BC974A5D00}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A5727A67-9899-4567-85F1-947C60027AC4}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
