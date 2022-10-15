@@ -4,6 +4,20 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Title>File Utility</Title>
+    <Description>A library for displaying file names and retrieving directory content. .NET 6.0, Windows only.</Description>
+    <PackageProjectUrl>https://github.com/Anders-H/FileUtility/blob/main/README.md</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/Anders-H/FileUtility</RepositoryUrl>
+    <PackageId>WinSoftFileUtility</PackageId>
+    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>

@@ -7,6 +7,12 @@ A library for displaying file names and retrieving directory content, implemente
 <TargetFramework>net6.0-windows</TargetFramework>
 ```
 
+Install:
+
+```
+Install-Package WinSoftFileUtility
+```
+
 Shorten a path:
 
 ```
