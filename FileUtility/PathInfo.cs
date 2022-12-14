@@ -53,6 +53,7 @@ public class PathInfo
             return result;
 
         var files = di.GetFiles();
+
         foreach (var f in files)
         {
             try
@@ -68,6 +69,7 @@ public class PathInfo
         }
 
         var dirs = di.GetDirectories();
+
         foreach (var d in dirs)
         {
             try
@@ -92,6 +94,7 @@ public class PathInfo
     private void GetChildContent(PathInfo p, Func<PathInfo, bool> include, ref List<PathInfo> result, int depth, int currentDepth)
     {
         var files = p.GetDirectoryInfo()!.GetFiles();
+
         foreach (var f in files)
         {
             try
@@ -107,11 +110,13 @@ public class PathInfo
         }
 
         var dirs = p.GetDirectoryInfo()!.GetDirectories();
+
         foreach (var d in dirs)
         {
             try
             {
                 var p2 = new PathInfo(d);
+
                 if (include(p2))
                 {
                     result.Add(new PathInfo(d));
@@ -167,6 +172,23 @@ public class PathInfo
         }
     }
 
+    public string SizeAsString
+    {
+        get
+        {
+            if (SizeBytes <= 1200)
+                return $"{SizeBytes:N} bytes";
+
+            if (SizeKiloBytes <= 1200.0)
+                return $"{SizeKiloBytes:N2} Kb";
+
+            if (SizeMegaBytes <= 1200.0)
+                return $"{SizeMegaBytes:N2} Mb";
+
+            return $"{SizeGigaBytes:N2} Gb";
+        }
+    }
+
     private long GetSize()
     {
         if (ContainsFile)
@@ -175,9 +197,75 @@ public class PathInfo
         return ContainsDirectory ? GetDirectorySize() : 0L;
     }
 
-    private long GetDirectorySize()
+    public long GetDirectorySize()
     {
-        return 10;
+        var result = 0L;
+
+        var di = GetDirectoryInfo();
+
+        if (di == null)
+            return result;
+
+        var files = di.GetFiles();
+        
+        foreach (var f in files)
+        {
+            try
+            {
+                result += f.Length;
+            }
+            catch
+            {
+                // ignored
+            }
+        }
+
+        var dirs = di.GetDirectories();
+        
+        foreach (var d in dirs)
+        {
+            try
+            {
+                GetChildDirectorySize(new PathInfo(d), ref result);
+            }
+            catch
+            {
+                // ignored
+            }
+        }
+
+        return result;
+    }
+
+    private void GetChildDirectorySize(PathInfo p, ref long result)
+    {
+        var files = p.GetDirectoryInfo()!.GetFiles();
+
+        foreach (var f in files)
+        {
+            try
+            {
+                result += f.Length;
+            }
+            catch
+            {
+                // ignored
+            }
+        }
+
+        var dirs = p.GetDirectoryInfo()!.GetDirectories();
+
+        foreach (var d in dirs)
+        {
+            try
+            {
+                GetChildDirectorySize(new PathInfo(d), ref result);
+            }
+            catch
+            {
+                // ignored
+            }
+        }
     }
 
     public override string ToString() =>
