@@ -137,6 +137,49 @@ public class PathInfo
         return s.ToString();
     }
 
+    public long SizeBytes =>
+        GetSize();
+
+    public float SizeKiloBytes
+    {
+        get
+        {
+            var size = (double)GetSize();
+            return size > 0 ? (float)(size / 1024.0) : 0.0f;
+        }
+    }
+
+    public float SizeMegaBytes
+    {
+        get
+        {
+            var size = (double)GetSize();
+            return size > 0 ? (float)(size / 1048576.0) : 0.0f;
+        }
+    }
+
+    public float SizeGigaBytes
+    {
+        get
+        {
+            var size = (double)GetSize();
+            return size > 0 ? (float)(size / 1073741824.0) : 0.0f;
+        }
+    }
+
+    private long GetSize()
+    {
+        if (ContainsFile)
+            return FileInfo!.Length;
+
+        return ContainsDirectory ? GetDirectorySize() : 0L;
+    }
+
+    private long GetDirectorySize()
+    {
+        return 10;
+    }
+
     public override string ToString() =>
         FullName;
 }
