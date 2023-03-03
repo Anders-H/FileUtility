@@ -12,7 +12,7 @@
 		<PackageId>WinSoftFileUtility</PackageId>
 		<PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
 		<Version>1.0.2</Version>
-		<PackageReleaseNotes>Added properties for getting size in different formats for both files and directories.</PackageReleaseNotes>
+		<PackageReleaseNotes>Moved to .NET 7.0 (Windows).</PackageReleaseNotes>
 	</PropertyGroup>
 
 	<ItemGroup>
