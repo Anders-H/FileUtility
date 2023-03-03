@@ -60,7 +60,7 @@ public class PathTests
 
         // All folders and icon files in three levels.
 
-        bool Guard(PathInfo p) =>
+        static bool Guard(PathInfo p) =>
             p.ContainsDirectory || (p.ContainsFile && p.FullName.EndsWith(".ico", StringComparison.CurrentCultureIgnoreCase));
 
         l = new PathInfo(new DirectoryInfo(@"C:\")).GetDirectoryContent(3, Guard);

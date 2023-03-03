@@ -2,10 +2,10 @@
 
 A library for displaying file names and retrieving directory content, implemented in a PathInfo class.
 
-.NET 6.0, Windows only. Can only be used if target framework is set to `.net6.0-windows`.
+.NET 7.0, Windows only. Can only be used if target framework is set to `.net7.0-windows`.
 
 ```
-<TargetFramework>net6.0-windows</TargetFramework>
+<TargetFramework>net7.0-windows</TargetFramework>
 ```
 
 Install:
