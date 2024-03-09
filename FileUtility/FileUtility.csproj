@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net7.0-windows</TargetFramework>
+		<TargetFramework>net8.0-windows</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<Title>File Utility</Title>
@@ -11,8 +11,8 @@
 		<RepositoryUrl>https://github.com/Anders-H/FileUtility</RepositoryUrl>
 		<PackageId>WinSoftFileUtility</PackageId>
 		<PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
-		<Version>1.0.2</Version>
-		<PackageReleaseNotes>Moved to .NET 7.0 (Windows).</PackageReleaseNotes>
+		<Version>1.0.4</Version>
+		<PackageReleaseNotes>Moved to .NET 8.0 (Windows), added temp path functions.</PackageReleaseNotes>
 	</PropertyGroup>
 
 	<ItemGroup>

@@ -2,10 +2,10 @@
 
 A library for displaying file names and retrieving directory content, implemented in a PathInfo class.
 
-.NET 7.0, Windows only. Can only be used if target framework is set to `.net7.0-windows`.
+.NET 8.0, Windows only. Can only be used if target framework is set to `.net8.0-windows`.
 
 ```
-<TargetFramework>net7.0-windows</TargetFramework>
+<TargetFramework>net8.0-windows</TargetFramework>
 ```
 
 Install:
@@ -47,6 +47,7 @@ Retrieve directory contents in two levels:
 ```
 var l = new PathInfo(new DirectoryInfo(@"C:\")).GetDirectoryContent(2);
 Console.WriteLine(l.Count);
+
 foreach (var p in l)
     Console.WriteLine(p);
 ```
@@ -59,6 +60,14 @@ bool Guard(PathInfo p) =>
 
 var l = new PathInfo(new DirectoryInfo(@"C:\")).GetDirectoryContent(3, Guard);
 Console.WriteLine(l.Count);
+
 foreach (var p in l)
     Console.WriteLine(p);
 ```
+
+Get a temporary full path from a filename:
+
+```
+var x = temp.GetTemporaryFileInfo("MyData.xml")
+
+// x is "C:\Users\mr_anders\AppData\Local\Temp\MyData.xml"
